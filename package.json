@@ -1,0 +1,27 @@
+{
+  "name": "subscription-manager",
+  "version": "1.0.0",
+  "description": "A simple web application to manage and track app subscriptions",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "subscription",
+    "management",
+    "tracking",
+    "expenses",
+    "web-app"
+  ],
+  "author": "Adnan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adnan/subscription-manager.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adnan/subscription-manager/issues"
+  },
+  "homepage": "https://github.com/adnan/subscription-manager#readme"
+}

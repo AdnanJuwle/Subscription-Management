@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Subscription Manager</h1>
+            <p>Track your app subscriptions and expenses</p>
+        </header>
+
+        <div class="controls">
+            <button id="addBtn" class="btn btn-primary">Add Subscription</button>
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Total Monthly</span>
+                    <span class="stat-value" id="totalMonthly">$0.00</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Total Yearly</span>
+                    <span class="stat-value" id="totalYearly">$0.00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="subscriptions-container">
+            <div id="subscriptionsList" class="subscriptions-list">
+                <div class="empty-state">
+                    <p>No subscriptions yet. Add your first subscription!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Subscription</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="subscriptionForm">
+                <div class="form-group">
+                    <label for="appName">App Name</label>
+                    <input type="text" id="appName" name="appName" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="productivity">Productivity</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="development">Development</option>
+                        <option value="design">Design</option>
+                        <option value="cloud">Cloud Services</option>
+                        <option value="security">Security</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="billingCycle">Billing Cycle</label>
+                    <select id="billingCycle" name="billingCycle" required>
+                        <option value="">Select Billing Cycle</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nextBilling">Next Billing Date</label>
+                    <input type="date" id="nextBilling" name="nextBilling" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
