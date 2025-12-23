@@ -7,30 +7,99 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
+    <!-- Auth Screen (shown when not logged in) -->
+    <div id="authScreen" class="auth-screen">
+        <div class="auth-container">
             <h1>Subscription Manager</h1>
             <p>Track your app subscriptions and expenses</p>
-        </header>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
 
-        <div class="controls">
-            <button id="addBtn" class="btn btn-primary">Add Subscription</button>
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-label">Total Monthly</span>
-                    <span class="stat-value" id="totalMonthly">$0.00</span>
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" required>
                 </div>
-                <div class="stat">
-                    <span class="stat-label">Total Yearly</span>
-                    <span class="stat-value" id="totalYearly">$0.00</span>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
                 </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div id="loginError" class="error-message"></div>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerName">Name (Optional)</label>
+                    <input type="text" id="registerName" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" name="password" required minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <div id="registerError" class="error-message"></div>
+            </form>
+
+            <!-- Guest Login Section -->
+            <div class="guest-login-section">
+                <p>Or continue as a guest (no account needed)</p>
+                <button id="guestLoginBtn" class="btn btn-guest btn-block">Continue as Guest</button>
+                <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.7;">Guest mode uses local storage - data stays on your device</p>
             </div>
         </div>
+    </div>
 
-        <div class="subscriptions-container">
-            <div id="subscriptionsList" class="subscriptions-list">
-                <div class="empty-state">
-                    <p>No subscriptions yet. Add your first subscription!</p>
+    <!-- Main App (shown when logged in) -->
+    <div id="appScreen" class="app-screen" style="display: none;">
+        <div class="container">
+            <header>
+                <div class="header-content">
+                    <div>
+                        <h1>Subscription Manager</h1>
+                        <p>Track your app subscriptions and expenses</p>
+                    </div>
+                    <div class="user-info">
+                        <div id="userBadge" class="user-badge">
+                            <span id="userName"></span>
+                        </div>
+                        <button id="logoutBtn" class="btn btn-secondary btn-small">Logout</button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="controls">
+                <button id="addBtn" class="btn btn-primary">Add Subscription</button>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-label">Total Monthly</span>
+                        <span class="stat-value" id="totalMonthly">$0.00</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Total Yearly</span>
+                        <span class="stat-value" id="totalYearly">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subscriptions-container">
+                <div id="subscriptionsList" class="subscriptions-list">
+                    <div class="empty-state">
+                        <p>No subscriptions yet. Add your first subscription!</p>
+                    </div>
                 </div>
             </div>
         </div>
